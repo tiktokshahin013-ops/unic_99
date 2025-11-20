@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LT Team vip Hack</title>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Outfit', sans-serif;
+      background: radial-gradient(circle at top, #00111f, #000000 70%);
+      color: #e8faff;
+      overflow-x: hidden;
+    }
+
+    /* Password Screen */
+    #passwordScreen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: #000d18;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      z-index: 9999;
+    }
+    #passwordScreen h2 {
+      font-size: 26px;
+      color: #00e5ff;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    #passInput {
+      width: 80%;
+      max-width: 300px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #00eaffaa;
+      background: #001a24;
+      color: #bff6ff;
+      text-align: center;
+      font-size: 16px;
+    }
+    #passBtn {
+      margin-top: 12px;
+      padding: 10px 30px;
+      font-size: 16px;
+      background: #00d5ff;
+      border: none;
+      color: #002028;
+      border-radius: 10px;
+      cursor: pointer;
+      font-weight: 700;
+      box-shadow: 0 0 10px #00e5ff;
+    }
+
+    /* Main UI */
+    .header {
+      text-align: center;
+      padding: 20px 0;
+      font-size: 26px;
+      font-weight: 900;
+      color: #00eaff;
+      text-shadow: 0 0 15px #00eaffaa;
+    }
+
+    .card {
+      background: #00131f;
+      border: 1px solid #00d9ff44;
+      border-radius: 16px;
+      padding: 16px;
+      margin: 12px;
+      box-shadow: 0 0 12px #00eaff22;
+    }
+
+    /* New Timer & Period Styles (Adapted to Dark Theme) */
+    .period-box, .timer-box {
+        padding: 15px;
+        border-radius: 12px;
+        background-color: #001a24;
+        border: 1px solid #003544;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+    
+    .period-label, .timer-label {
+        display: block;
+        font-size: 14px;
+        color: #00d5ff;
+        margin-bottom: 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+    }
+    
+    .period-value {
+        font-family: 'Courier New', monospace;
+        font-size: 22px;
+        font-weight: bold;
+        color: #ffffff;
+        letter-spacing: 1px;
+    }
+
+    .timer-value {
+        font-family: 'Courier New', monospace;
+        font-size: 32px;
+        font-weight: bold;
+        color: #ff3d3d; /* Red color for timer */
+        letter-spacing: 4px;
+        text-shadow: 0 0 10px rgba(255, 61, 61, 0.5);
+    }
+
+    /* Prediction Box */
+    .prediction-box {
+      text-align: center;
+      font-size: 20px;
+      padding: 16px;
+      font-weight: 700;
+      background: #001923;
+      border: 1px solid #00f2ff66;
+      color: #00eaff;
+      border-radius: 14px;
+      margin: 12px;
+    }
+
+    .history-container table {
+      width: 100%;
+      color: #b8f9ff;
+      border-collapse: collapse;
+    }
+    th {
+      background: #002533;
+      color: #00eaff;
+      padding: 10px;
+      font-size: 15px;
+    }
+    td {
+      padding: 10px;
+      text-align: center;
+      border-bottom: 1px solid #003544;
+    }
+
+    /* Color dots */
+    .dot { width: 12px; height: 12px; display:inline-block; border-radius:50%; }
+    .red { color:#ff3d3d; } .dot.red{background:red;}
+    .green{color:#00ff8f;} .dot.green{background:lime;}
+    .violet{color:#c27cff;} .dot.violet{background:violet;}
+
+    /* Telegram Floating Button */
+    .telegram-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #0088cc;
+      box-shadow: 0 0 20px #00eaff;
+    }
+    .telegram-button img {
+      width: 100%; height:100%; border-radius:50%; }
+
+  </style>
+</head>
+<body>
+
+<!-- PASSWORD SCREEN -->
+<div id="passwordScreen">
+  <h2>ENTER PASSWORD</h2>
+  <input type="password" id="passInput" placeholder="Enter Password" />
+  <button id="passBtn">LOGIN</button>
+</div>
+
+<!-- MAIN CONTENT -->
+<div id="mainContent" style="display:none;">
+  <div class="header">💀LT TEAM VIP HACK</div>
+  
+  <!-- NEW TIMER AND PERIOD SECTION -->
+  <div class="card">
+    <div class="period-box">
+        <span class="period-label">Period Number</span>
+        <span id="periodValue1Min" class="period-value">Loading...</span>
+    </div>
+    
+    <div class="timer-box">
+        <span class="timer-label">Time Remaining</span>
+        <span id="timerValue" class="timer-value">00 : 00</span>
+    </div>
+  </div>
+
+  <!-- PREDICTION BOX -->
+  <div class="card prediction-box" id="predictionBox">Waiting for next period...</div>
+  
+  <!-- HISTORY TABLE -->
+  <div class="history-container card">
+    <table>
+      <thead>
+        <tr>
+          <th>Period</th>
+          <th>Number</th>
+          <th>Big/Small</th>
+          <th>Color</th>
+        </tr>
+      </thead>
+      <tbody id="resultBody"><tr><td colspan="4">Loading...</td></tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- TELEGRAM BUTTON -->
+<a href="https://t.me/mobarokvai" target="_blank" class="telegram-button">
+  <img src="https://cdn-icons-png.flaticon.com/512/2111/2111646.png" />
+</a>
+
+<script>
+const PASSWORD = "mobarok.lt";
+
+// PASSWORD CHECKER
+const passBtn = document.getElementById('passBtn');
+const passInput = document.getElementById('passInput');
+const passwordScreen = document.getElementById('passwordScreen');
+const mainContent = document.getElementById('mainContent');
+
+passBtn.onclick = () => {
+  if (passInput.value === PASSWORD) {
+    passwordScreen.style.display = "none";
+    mainContent.style.display = "block";
+    // Start the loops only after login
+    startApp(); 
+  } else {
+    alert("Incorrect Password!");
+  }
+};
+
+// APIs
+const HISTORY_API = 'https://draw.ar-lottery01.com/WinGo/WinGo_1M/GetHistoryIssuePage.json';
+
+function getBigSmall(n){ return n>=5?"Big":"Small"; }
+function getColorType(n){ if([1,3,7,9].includes(n))return"Green"; if([2,4,6,8].includes(n))return"Red"; return"Violet"; }
+
+// --- NEW TIMER & PERIOD LOGIC ---
+let currentPeriodString = ""; // To store the calculated period globally
+
+function updateTimer() {
+    const now = new Date();
+    
+    // Get UTC time
+    const utcSeconds = now.getUTCSeconds();
+    const utcMinutes = now.getUTCMinutes();
+    const utcHours = now.getUTCHours();
+    
+    // Calculate remaining seconds for the current minute
+    const remainingSeconds = 60 - utcSeconds;
+    
+    // Calculate total minutes since start of day
+    const totalMinutes = utcHours * 60 + utcMinutes;
+    
+    // Format date as yyyyMMdd
+    const year = now.getUTCFullYear();
+    const month = String(now.getUTCMonth() + 1).padStart(2, '0');
+    const day = String(now.getUTCDate()).padStart(2, '0');
+    const dateStr = `${year}${month}${day}`;
+    
+    // Update 1-minute period number
+    // Logic: 10001 + totalMinutes
+    const periodNumber1Min = 10001 + totalMinutes;
+    currentPeriodString = dateStr + "1000" + periodNumber1Min;
+    
+    document.getElementById('periodValue1Min').textContent = currentPeriodString;
+    
+    // Update timer in format "  x x  :  x x"
+    // Logic: Adjust seconds display
+    // Note: If seconds is 60 (momentarily), show 00
+    let displaySeconds = remainingSeconds === 60 ? 0 : remainingSeconds;
+    
+    const formattedTime = `   ${String(0).padStart(2, '0')}  :  ${String(displaySeconds).padStart(2, '0')}`
+        .replace(/(\d)(?=\d)/g, '$1 ');
+    
+    document.getElementById('timerValue').textContent = formattedTime;
+}
+
+async function loadAndPredict() {
+  // Use the calculated period string from updateTimer()
+  // If updateTimer hasn't run yet, wait.
+  if (!currentPeriodString) return;
+
+  // --- HISTORY TABLE LOGIC ---
+  // Fetching history to show previous results
+  try {
+    const res = await fetch(HISTORY_API + '?t=' + Date.now());
+    const data = await res.json();
+    const list = data.data.list.slice(0,10);
+
+    const tbody = document.getElementById('resultBody');
+    tbody.innerHTML = '';
+
+    list.forEach(item => {
+      const n = parseInt(item.number);
+      const size = getBigSmall(n);
+      const color = getColorType(n).toLowerCase();
+
+      tbody.innerHTML += `
+        <tr>
+          <td>${item.issueNumber}</td>
+          <td class="${color}">${n}</td>
+          <td>${size}</td>
+          <td><span class="dot ${color}"></span></td>
+        </tr>`;
+    });
+  } catch (e) {
+    // Handle error quietly
+    console.log("History load error");
+  }
+
+  // --- PREDICTION LOGIC (FIXED PER PERIOD) ---
+  
+  let storedPeriod = localStorage.getItem("saved_period");
+  let storedPrediction = localStorage.getItem("saved_prediction");
+  let finalPrediction = "";
+
+  // Check if period has changed
+  if (currentPeriodString !== storedPeriod) {
+      
+      // Generate NEW Random Result
+      const randomNum = Math.floor(Math.random() * 10);
+      const sizeType = randomNum >= 5 ? "Big" : "Small";
+      finalPrediction = `${sizeType} ${randomNum}`;
+
+      // Save to LocalStorage
+      localStorage.setItem("saved_period", currentPeriodString);
+      localStorage.setItem("saved_prediction", finalPrediction);
+      
+  } else {
+      // Period is same, show stored result
+      if(storedPrediction) {
+          finalPrediction = storedPrediction;
+      } else {
+          finalPrediction = "Analyzing..."; 
+      }
+  }
+
+  document.getElementById("predictionBox").innerHTML = `Prediction → ${finalPrediction}`;
+}
+
+function startApp() {
+    // Update Timer immediately and every second
+    updateTimer();
+    setInterval(updateTimer, 1000);
+
+    // Update Prediction/History every 3 seconds
+    loadAndPredict();
+    setInterval(loadAndPredict, 3000);
+}
+
+</script>
+</body>
+</html>
